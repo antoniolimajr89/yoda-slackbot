@@ -15,8 +15,6 @@ public class SlackBotController {
         System.out.println("oi");
     }
 
-
-
     @GetMapping
     public void test() {
         LocalTime now = LocalTime.now();
