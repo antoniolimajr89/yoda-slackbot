@@ -1,6 +1,7 @@
 package br.com.caelum.yodaslackbot.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,9 +11,9 @@ import java.time.LocalTime;
 @RequestMapping("/slack")
 public class SlackBotController {
 
-    @GetMapping("/usandosala1")
-    public void usingRoom() {
-        System.out.println("oi");
+    @PostMapping("/usandosala1")
+    public void usingRoom(NewRoomRequest newRoomRequest) {
+        System.out.println(newRoomRequest);
     }
 
     @GetMapping
