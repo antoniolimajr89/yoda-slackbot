@@ -1,0 +1,42 @@
+[
+    {
+        "numeroSala": "Sala 55",
+        "cursoAtual": "WD-43",
+        "periodoAtual": "Noturno (19:00 - 23:00)"
+    },
+    {
+        "numeroSala": "Sala 57",
+        "cursoAtual": "",
+        "periodoAtual": ""
+    },
+    {
+        "numeroSala": "71",
+        "cursoAtual": "",
+        "periodoAtual": ""
+    },
+    {
+        "numeroSala": "Sala 113",
+        "cursoAtual": "FJ-11",
+        "periodoAtual": "Integral (09:00 - 17:00)"
+    },
+    {
+        "numeroSala": "Sala 114",
+        "cursoAtual": "",
+        "periodoAtual": ""
+    },
+    {
+        "numeroSala": "Sala 126",
+        "cursoAtual": "FN-13",
+        "periodoAtual": "Noturno (19:00 - 23:00)"
+    },
+    {
+        "numeroSala": "Sala 141",
+        "cursoAtual": "",
+        "periodoAtual": ""
+    },
+    {
+        "numeroSala": "Sala 144",
+        "cursoAtual": "",
+        "periodoAtual": ""
+    }
+]

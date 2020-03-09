@@ -15,14 +15,15 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Component
-public class ImportRooms {
+public class ImportRoomsTask {
 
     @Autowired
     private RoomRepository roomRepository;
 
-    //    @Scheduled(cron = "0 15 7 * * MON")
-    @Scheduled(cron = "*/30 * * * * *")
+    //    @Scheduled(cron = "0 15 7 * * MON-SAT")
+    @Scheduled(cron = "*/10 * * * * *")
     public void importRooms() {
+        roomRepository.deleteAll();
         ObjectMapper objectMapper = new ObjectMapper();
         File file = new File("turmas.json");
         try {

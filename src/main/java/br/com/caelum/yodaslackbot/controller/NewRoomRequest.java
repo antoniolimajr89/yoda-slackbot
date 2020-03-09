@@ -1,7 +1,7 @@
 package br.com.caelum.yodaslackbot.controller;
 
 public class NewRoomRequest {
-    
+
     private String token;
     private String channel_name;
     private String user_name;
@@ -23,13 +23,19 @@ public class NewRoomRequest {
         this.text = text;
     }
 
-    @Override
-    public String toString() {
-        return "NewRoomRequest{" +
-                "token='" + token + '\'' +
-                ", channel_name='" + channel_name + '\'' +
-                ", user_name='" + user_name + '\'' +
-                ", text='" + text + '\'' +
-                '}';
+    public String getToken() {
+        return token;
+    }
+
+    public String getChannel_name() {
+        return channel_name;
+    }
+
+    public String getUser_name() {
+        return user_name;
+    }
+
+    public String getText() {
+        return text;
     }
 }
