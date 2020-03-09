@@ -14,7 +14,7 @@ public class Room {
     private String name;
     private String period;
     private String course;
-    private String userText;
+    private String userText = "";
 
     @Deprecated
     public Room() {
