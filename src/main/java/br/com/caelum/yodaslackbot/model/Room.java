@@ -29,4 +29,24 @@ public class Room {
     public void usingRoom(String userText) {
         this.userText = userText;
     }
+
+    public boolean hasCourse() {
+        return !this.course.isEmpty();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPeriod() {
+        return period;
+    }
+
+    public String getCourse() {
+        return course;
+    }
+
+    public String getUserText() {
+        return userText;
+    }
 }
