@@ -26,16 +26,21 @@ public class SlackBotController {
     public SlackResponseDto usingRoom(NewRoomRequest newRoomRequest) {
         slackBotService.updateUsingRoom(newRoomRequest);
 
-        SlackResponseDto slackResponseDto = new SlackResponseDto(slackBotService.buildMessage(),
+        return new SlackResponseDto(slackBotService.buildMessage(),
                 newRoomRequest.getChannel_name());
-
-        return slackResponseDto;
     }
 
-//    @PostMapping("/deixandosala1")
-//    public void leavingRoom(NewRoomRequest newRoomRequest) {
-//        Optional<Room> possibleRoom = roomRepository.findByName(newRoomRequest.getText());
-//
-//        if (possibleRoom)
-//    }
+    @PostMapping("/deixandosala")
+    public SlackResponseDto leavingRoom(NewRoomRequest newRoomRequest) {
+        Optional<Room> possibleRoom = roomRepository.findByName(newRoomRequest.getText());
+
+        if (possibleRoom.isPresent()) {
+            possibleRoom.get().leavingRoom();
+
+            return new SlackResponseDto(slackBotService.buildMessage(),
+                    newRoomRequest.getChannel_name());
+        }
+
+        throw new RuntimeException();
+    }
 }
