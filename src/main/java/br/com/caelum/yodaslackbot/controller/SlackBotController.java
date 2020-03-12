@@ -22,7 +22,7 @@ public class SlackBotController {
     @Autowired
     private RoomRepository roomRepository;
 
-    @PostMapping("/usandosala1")
+    @PostMapping("/usandosala")
     public SlackResponseDto usingRoom(NewRoomRequest newRoomRequest) {
         slackBotService.updateUsingRoom(newRoomRequest);
 
