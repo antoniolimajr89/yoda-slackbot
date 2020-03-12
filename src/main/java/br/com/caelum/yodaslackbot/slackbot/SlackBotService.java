@@ -1,8 +1,6 @@
-package br.com.caelum.yodaslackbot.service;
+package br.com.caelum.yodaslackbot.slackbot;
 
 import br.com.caelum.yodaslackbot.caelumweb.RoomRepository;
-import br.com.caelum.yodaslackbot.model.NewRoomRequest;
-import br.com.caelum.yodaslackbot.model.Room;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

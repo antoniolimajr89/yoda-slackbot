@@ -1,10 +1,6 @@
-package br.com.caelum.yodaslackbot.controller;
+package br.com.caelum.yodaslackbot.slackbot;
 
 import br.com.caelum.yodaslackbot.caelumweb.RoomRepository;
-import br.com.caelum.yodaslackbot.model.NewRoomRequest;
-import br.com.caelum.yodaslackbot.model.Room;
-import br.com.caelum.yodaslackbot.model.SlackResponseDto;
-import br.com.caelum.yodaslackbot.service.SlackBotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

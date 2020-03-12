@@ -1,6 +1,6 @@
 package br.com.caelum.yodaslackbot.caelumweb;
 
-import br.com.caelum.yodaslackbot.model.Room;
+import br.com.caelum.yodaslackbot.slackbot.Room;
 import org.springframework.util.StringUtils;
 
 public class ImportedRoomsDto {

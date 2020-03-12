@@ -1,4 +1,4 @@
-package br.com.caelum.yodaslackbot.controller;
+package br.com.caelum.yodaslackbot.slackbot;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,4 +1,4 @@
-package br.com.caelum.yodaslackbot.model;
+package br.com.caelum.yodaslackbot.slackbot;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

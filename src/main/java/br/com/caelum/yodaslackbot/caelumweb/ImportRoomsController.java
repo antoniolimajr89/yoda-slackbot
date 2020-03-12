@@ -1,13 +1,11 @@
 package br.com.caelum.yodaslackbot.caelumweb;
 
-import br.com.caelum.yodaslackbot.model.Room;
+import br.com.caelum.yodaslackbot.slackbot.Room;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.File;

@@ -1,4 +1,4 @@
-package br.com.caelum.yodaslackbot.model;
+package br.com.caelum.yodaslackbot.slackbot;
 
 public class SlackResponseDto {
 
