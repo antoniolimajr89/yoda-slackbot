@@ -36,7 +36,7 @@ public class SlackBotController {
 
         if (possibleRoom.isPresent()) {
             possibleRoom.get().leavingRoom();
-
+            roomRepository.save(possibleRoom.get());
             return new SlackResponseDto(slackBotService.buildMessage(),
                     newRoomRequest.getChannel_name());
         }
