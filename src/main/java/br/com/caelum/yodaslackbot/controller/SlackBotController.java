@@ -1,10 +1,16 @@
 package br.com.caelum.yodaslackbot.controller;
 
+import br.com.caelum.yodaslackbot.caelumweb.RoomRepository;
+import br.com.caelum.yodaslackbot.model.NewRoomRequest;
+import br.com.caelum.yodaslackbot.model.Room;
+import br.com.caelum.yodaslackbot.model.SlackResponseDto;
 import br.com.caelum.yodaslackbot.service.SlackBotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/slack")
@@ -13,16 +19,23 @@ public class SlackBotController {
     @Autowired
     private SlackBotService slackBotService;
 
+    @Autowired
+    private RoomRepository roomRepository;
+
     @PostMapping("/usandosala1")
-    public String usingRoom(NewRoomRequest newRoomRequest) {
+    public SlackResponseDto usingRoom(NewRoomRequest newRoomRequest) {
         slackBotService.updateUsingRoom(newRoomRequest);
 
-        System.out.println(slackBotService.buildResponse());
-        return "";
+        SlackResponseDto slackResponseDto = new SlackResponseDto(slackBotService.buildMessage(),
+                newRoomRequest.getChannel_name());
+
+        return slackResponseDto;
     }
 
-    @PostMapping("/deixandosala1")
-    public void leavingRoom(NewRoomRequest newRoomRequest) {
-        System.out.println(newRoomRequest);
-    }
+//    @PostMapping("/deixandosala1")
+//    public void leavingRoom(NewRoomRequest newRoomRequest) {
+//        Optional<Room> possibleRoom = roomRepository.findByName(newRoomRequest.getText());
+//
+//        if (possibleRoom)
+//    }
 }

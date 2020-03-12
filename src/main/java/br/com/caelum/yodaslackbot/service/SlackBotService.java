@@ -1,8 +1,8 @@
 package br.com.caelum.yodaslackbot.service;
 
-import br.com.caelum.yodaslackbot.controller.NewRoomRequest;
+import br.com.caelum.yodaslackbot.caelumweb.RoomRepository;
+import br.com.caelum.yodaslackbot.model.NewRoomRequest;
 import br.com.caelum.yodaslackbot.model.Room;
-import br.com.caelum.yodaslackbot.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,27 +28,30 @@ public class SlackBotService {
                     room.usingRoom(newRoomRequest.getUser_name());
                 }
                 roomRepository.save(room);
+
             }
 
         }
     }
 
-
-    public String buildResponse() {
-        List<Room> rooms = (List<Room>) this.roomRepository.findAll();
+    public String buildMessage() {
+        List<Room> rooms = this.roomRepository.findAll();
         StringBuilder builder = new StringBuilder();
         builder.append("Salas Livres estao: ```");
         for (Room room : rooms) {
-            builder.append(room.getName() + " | ");
+            if (room.getName().length() == 2) {
+                builder.append(room.getName() + "  | ");
+            } else {
+                builder.append(room.getName() + " | ");
+            }
 
             if (room.hasCourse()) {
-                builder.append(room.getUserText() + " (" + room.getCourse() + "|" + room.getPeriod() + ")");
+                builder.append(room.getUsername() + " (" + room.getCourse() + "|" + room.getPeriod() + ")");
             } else {
-                builder.append(room.getUserText());
+                builder.append(room.getUsername());
             }
 
             builder.append("\n");
-
         }
         builder.append("```\n");
         return builder.toString();

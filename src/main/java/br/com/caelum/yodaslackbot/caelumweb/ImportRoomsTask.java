@@ -1,7 +1,6 @@
-package br.com.caelum.yodaslackbot.model;
+package br.com.caelum.yodaslackbot.caelumweb;
 
-import br.com.caelum.yodaslackbot.repository.RoomRepository;
-import br.com.caelum.yodaslackbot.task.ImportedRoomsDto;
+import br.com.caelum.yodaslackbot.model.Room;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,14 +19,15 @@ public class ImportRoomsTask {
     @Autowired
     private RoomRepository roomRepository;
 
-    //    @Scheduled(cron = "0 15 7 * * MON-SAT")
-    @Scheduled(cron = "*/10 * * * * *")
+    @Scheduled(cron = "0 15 7 * * MON-SAT")
+//    @Scheduled(cron = "*/10 * * * * *")
     public void importRooms() {
         roomRepository.deleteAll();
         ObjectMapper objectMapper = new ObjectMapper();
         File file = new File("turmas.json");
         try {
-            List<ImportedRoomsDto> importedRooms = objectMapper.readValue(file, new TypeReference<>(){});
+            List<ImportedRoomsDto> importedRooms = objectMapper.readValue(file, new TypeReference<>() {
+            });
             Set<Room> rooms = importedRooms.stream().map(importedRoomsDto -> importedRoomsDto.toModel())
                     .collect(Collectors.toSet());
 

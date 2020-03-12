@@ -14,7 +14,7 @@ public class Room {
     private String name;
     private String period;
     private String course;
-    private String userText = "";
+    private String username = "";
 
     @Deprecated
     public Room() {
@@ -27,8 +27,10 @@ public class Room {
     }
 
     public void usingRoom(String userText) {
-        this.userText = userText;
+        this.username = userText;
     }
+
+    public void leavingRoom() { this.username = ""; }
 
     public boolean hasCourse() {
         return !this.course.isEmpty();
@@ -46,7 +48,7 @@ public class Room {
         return course;
     }
 
-    public String getUserText() {
-        return userText;
+    public String getUsername() {
+        return username;
     }
 }

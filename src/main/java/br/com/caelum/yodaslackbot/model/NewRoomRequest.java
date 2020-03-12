@@ -1,4 +1,4 @@
-package br.com.caelum.yodaslackbot.controller;
+package br.com.caelum.yodaslackbot.model;
 
 public class NewRoomRequest {
 

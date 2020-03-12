@@ -1,4 +1,4 @@
-package br.com.caelum.yodaslackbot.task;
+package br.com.caelum.yodaslackbot.caelumweb;
 
 import br.com.caelum.yodaslackbot.model.Room;
 import org.springframework.util.StringUtils;
@@ -42,15 +42,6 @@ public class ImportedRoomsDto {
 
     public Room toModel() {
         return new Room(this.numeroSala, this.periodoAtual, this.cursoAtual);
-    }
-
-    @Override
-    public String toString() {
-        return "ImportedRoomsDto{" +
-                "numeroSala='" + numeroSala + '\'' +
-                ", cursoAtual='" + cursoAtual + '\'' +
-                ", periodoAtual='" + periodoAtual + '\'' +
-                '}';
     }
 }
 

@@ -10,6 +10,7 @@ public class WakeUpTask {
     @Scheduled(cron = "0 0/15 7-23 * * MON-SAT")
     public void wakeUp() {
         RestTemplate restTemplate = new RestTemplate();
-        restTemplate.getForEntity("https://caelum-yoda-slackbot.herokuapp.com/wakeup", String.class, Object.class);
+        restTemplate.getForEntity("https://caelum-yoda-slackbot.herokuapp.com/wakeup",
+                String.class, Object.class);
     }
 }
