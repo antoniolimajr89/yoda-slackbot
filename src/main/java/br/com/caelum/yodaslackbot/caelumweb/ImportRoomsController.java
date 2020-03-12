@@ -6,6 +6,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,14 +16,14 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-@Component
-public class ImportRoomsTask {
+@RestController
+public class ImportRoomsController {
 
     @Autowired
     private RoomRepository roomRepository;
 
+    @GetMapping("/magic/anlsdjkdahsljkasdhaegityujnadlksjhg")
     @Scheduled(cron = "0 15 7 * * MON-SAT")
-//    @Scheduled(cron = "*/10 * * * * *")
     public void importRooms() {
         roomRepository.deleteAll();
         ObjectMapper objectMapper = new ObjectMapper();
