@@ -5,43 +5,34 @@ import org.springframework.util.StringUtils;
 
 public class ImportedRoomsDto {
 
-    private String numeroSala;
+    private String numeroDaSala;
     private String cursoAtual;
     private String periodoAtual;
 
-    public String getNumeroSala() {
-        return numeroSala;
-    }
-
-    public void setNumeroSala(String numeroSala) {
-
-        if (StringUtils.startsWithIgnoreCase(numeroSala, "Sala ")) {
-            this.numeroSala = numeroSala.substring(5);
-        } else if (numeroSala.contains("Auditório") || numeroSala.contains("22")) {
-            this.numeroSala = "22";
-        } else {
-            this.numeroSala = numeroSala;
-        }
+    public String getNumeroDaSala() {
+        return numeroDaSala;
     }
 
     public String getCursoAtual() {
         return cursoAtual;
     }
 
-    public void setCursoAtual(String cursoAtual) {
-        this.cursoAtual = cursoAtual;
-    }
-
     public String getPeriodoAtual() {
         return periodoAtual;
     }
 
-    public void setPeriodoAtual(String periodoAtual) {
-        this.periodoAtual = periodoAtual;
-    }
-
     public Room toModel() {
-        return new Room(this.numeroSala, this.periodoAtual, this.cursoAtual);
+        return new Room(trataNumeroDaSala(this.numeroDaSala), this.periodoAtual, this.cursoAtual);
     }
-}
 
+    private String trataNumeroDaSala(String numeroDaSala) {
+        if (StringUtils.startsWithIgnoreCase(numeroDaSala, "Sala ")) {
+            return this.numeroDaSala = numeroDaSala.substring(5);
+        } else if (numeroDaSala.contains("Auditório") || numeroDaSala.contains("22")) {
+            return this.numeroDaSala = "22";
+        } else {
+            return this.numeroDaSala = numeroDaSala;
+        }
+    }
+
+}

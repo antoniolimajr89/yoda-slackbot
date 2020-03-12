@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Room {
+public class Room implements Comparable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -50,5 +50,11 @@ public class Room {
 
     public String getUsername() {
         return username;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Room anotherRoom = (Room) o;
+        return Integer.parseInt(this.name) - Integer.parseInt(anotherRoom.getName());
     }
 }
