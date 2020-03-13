@@ -5,6 +5,7 @@ public class NewRoomRequest {
     private String token;
     private String channel_name;
     private String user_name;
+    private String response_url;
     private String text;
 
     public void setToken(String token) {
@@ -23,6 +24,10 @@ public class NewRoomRequest {
         this.text = text;
     }
 
+    public void setResponse_url(String response_url) {
+        this.response_url = response_url;
+    }
+
     public String getToken() {
         return token;
     }
@@ -37,5 +42,9 @@ public class NewRoomRequest {
 
     public String getText() {
         return text;
+    }
+
+    public String getResponse_url() {
+        return response_url;
     }
 }
