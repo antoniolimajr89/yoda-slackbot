@@ -4,8 +4,8 @@ import br.com.caelum.yodaslackbot.caelumweb.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
+import java.util.SortedSet;
 
 @Service
 public class SlackBotService {
@@ -33,9 +33,9 @@ public class SlackBotService {
     }
 
     public String buildMessage() {
-        List<Room> rooms = this.roomRepository.findAll();
+        SortedSet<Room> rooms = this.roomRepository.findAll();
         StringBuilder builder = new StringBuilder();
-        builder.append("Salas Livres estao: ```");
+        builder.append("Salas Livres estão: ```");
         for (Room room : rooms) {
             if (room.getName().length() == 2) {
                 builder.append(room.getName() + "  | ");
