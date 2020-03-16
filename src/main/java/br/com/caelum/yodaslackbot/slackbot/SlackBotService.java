@@ -2,8 +2,12 @@ package br.com.caelum.yodaslackbot.slackbot;
 
 import br.com.caelum.yodaslackbot.caelumweb.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Optional;
 import java.util.SortedSet;
 
@@ -32,7 +36,19 @@ public class SlackBotService {
         }
     }
 
-    public String buildMessage() {
+    public ResponseEntity<String> sendMessage(NewRoomRequest newRoomRequest) {
+        RestTemplate restTemplate = new RestTemplate();
+        SlackResponseDto slackResponseDto = new SlackResponseDto(this.buildMessage(),
+                newRoomRequest.getChannel_name());
+        try {
+            return restTemplate.postForEntity(new URI(newRoomRequest.getResponse_url()),
+                    slackResponseDto, String.class);
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private String buildMessage() {
         SortedSet<Room> rooms = this.roomRepository.findAll();
         StringBuilder builder = new StringBuilder();
         builder.append("Salas Livres estão: ```");
