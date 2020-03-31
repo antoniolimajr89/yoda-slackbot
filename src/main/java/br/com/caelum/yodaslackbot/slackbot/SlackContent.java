@@ -1,6 +1,6 @@
 package br.com.caelum.yodaslackbot.slackbot;
 
-public class WakeUp {
+public class SlackContent {
 
     private String token;
     private String text;
