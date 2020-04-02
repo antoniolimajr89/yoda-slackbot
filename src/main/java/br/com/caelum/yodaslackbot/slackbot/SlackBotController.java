@@ -56,13 +56,13 @@ public class SlackBotController {
     }
 
     @PostMapping
-    public void sendMessage(@RequestBody SlackContent slackContent) {
+    public void sendMessage(@RequestBody Slack slack) {
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
 
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-        HttpEntity<String> slackContentHttpEntity = new HttpEntity(slackContent, headers);
+        HttpEntity<String> slackContentHttpEntity = new HttpEntity(slack, headers);
 
         try {
             ResponseEntity<String> stringResponseEntity = restTemplate.postForEntity(new URI("https://api.caelum.com.br/slack/send"),
