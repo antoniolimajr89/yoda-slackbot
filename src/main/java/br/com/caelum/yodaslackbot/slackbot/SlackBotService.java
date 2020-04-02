@@ -41,6 +41,7 @@ public class SlackBotService {
         SlackResponseDto slackResponseDto = new SlackResponseDto(this.buildMessage(),
                 newRoomRequest.getChannel_name());
         try {
+            System.out.println("Enviando");
             return restTemplate.postForEntity(new URI(newRoomRequest.getResponse_url()),
                     slackResponseDto, String.class);
         } catch (URISyntaxException e) {
