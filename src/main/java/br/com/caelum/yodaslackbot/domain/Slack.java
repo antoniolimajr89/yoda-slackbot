@@ -1,4 +1,4 @@
-package br.com.caelum.yodaslackbot.slackbot;
+package br.com.caelum.yodaslackbot.domain;
 
 public class Slack {
 

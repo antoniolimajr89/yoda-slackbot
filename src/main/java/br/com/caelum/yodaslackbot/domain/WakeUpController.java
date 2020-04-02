@@ -1,4 +1,4 @@
-package br.com.caelum.yodaslackbot.slackbot;
+package br.com.caelum.yodaslackbot.domain;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
